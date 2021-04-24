@@ -10,19 +10,12 @@ public class EffectController : MonoBehaviour
     private void Start()
     {
         var particleSys = GetComponent<ParticleSystem>();
-
+        particleSys.Play();
         if (particleSys != null)
         {
             lifetimeDuration = particleSys.main.duration;
         }
-    }
-
-    private void Update()
-    {
-        lifetimeDuration -= Time.deltaTime;
-        if (lifetimeDuration <= 0f)
-        {
-            Destroy(this);
-        }
+        Destroy(gameObject, lifetimeDuration);
     }
 }
+   
