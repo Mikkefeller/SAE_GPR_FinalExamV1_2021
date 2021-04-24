@@ -12,7 +12,6 @@ public class SpellCastingController : MonoBehaviour, IPlayerAction
     [SerializeField] private Transform castLocationTransform;
     [SerializeField] private ProjectileSpellDescription simpleAttackSpell;
 
-
     private bool inAction;
     private float lastSimpleAttackTimestamp = -100;
 

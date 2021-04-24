@@ -10,6 +10,10 @@ public class PlayerHud : MonoBehaviour
     [SerializeField] private TMPro.TMP_Text spellCooldownText;
     [SerializeField] private GameObject collectUIObject;
 
+    [SerializeField] private Image specialAbilityIcon;
+    [SerializeField] private TMPro.TMP_Text specialAbilityCooldownText;
+
+
     private Outline iconOutline;
 
     private void Start()
@@ -18,6 +22,7 @@ public class PlayerHud : MonoBehaviour
         Debug.Assert(dropCollector != null, "DropCollector reference is null");
 
         spellIcon.sprite = spellCastingController.SimpleAttackSpellDescription.SpellIcon;
+
         iconOutline = spellIcon.GetComponent<Outline>();
 
         dropCollector.DropsInRangeChanged += OnDropsInRangeChanged;
@@ -34,11 +39,13 @@ public class PlayerHud : MonoBehaviour
         if (spellCastingController.IsInAction())
         {
             iconOutline.enabled = true;
+
         }
         else
         {
             iconOutline.enabled = false;
         }
+
         float cooldown = spellCastingController.GetSimpleAttackCooldown();
         if (cooldown > 0)
         {
