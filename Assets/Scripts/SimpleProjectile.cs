@@ -8,7 +8,7 @@ public class SimpleProjectile : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float selfdestructTime = 10;
 
-    [SerializeField] public GameObject electricBall;  
+    [SerializeField] private GameObject electricBall;  
 
     private void Start()
     {
