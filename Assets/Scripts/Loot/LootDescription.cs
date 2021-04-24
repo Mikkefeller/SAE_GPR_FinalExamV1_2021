@@ -11,15 +11,20 @@ public class LootDescription : ScriptableObject
     }
 
     public Drop SelectDropRandomly()
-    {
+    {   
+        float rnd = Random.value;
+        
         for (int i = 0; i < drops.Length; i++)
         {
-            float rnd = Random.value;
             DropProbabilityPair pair = drops[i];
 
             if (rnd < pair.Probability)
             {
                 return pair.Drop;
+            }
+            else
+            {
+                rnd -= pair.Probability;
             }
         }
         return null;
